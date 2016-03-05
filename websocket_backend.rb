@@ -1,5 +1,5 @@
-require 'faye/websocket'
-require 'json'
+require "faye/websocket"
+require "json"
 
 class WebsocketBackend
   KEEPALIVE_TIME = 15 # in seconds
@@ -10,8 +10,16 @@ class WebsocketBackend
   end
 
   def call(env)
+    env["websockets"] = @clients
     if Faye::WebSocket.websocket?(env)
       ws = Faye::WebSocket.new(env, nil, {ping: KEEPALIVE_TIME })
+      class << ws
+        attr_accessor :user_id
+
+        def emit_event(event_name, data = {})
+          self.send JSON.generate({eventName: event_name, data: data})
+        end
+      end
       ws.on :open do |event|
         p [:open, ws.object_id]
         @clients << ws

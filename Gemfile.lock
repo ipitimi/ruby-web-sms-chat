@@ -8,6 +8,7 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     builder (3.2.2)
+    byebug (8.2.2)
     certified (1.0.0)
     eventmachine (1.0.9.1)
     faraday (0.9.2)
@@ -49,6 +50,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  byebug
   faye-websocket
   i18n
   puma
