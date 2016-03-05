@@ -35,7 +35,7 @@ bundle install
 
 cd ..
 
-PORT=3000 ruby app.rb # or rackup 
+PORT=3000 ruby app.rb # or `bundle exec puma -p 3000`
 
 ```
 

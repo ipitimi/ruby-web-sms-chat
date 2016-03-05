@@ -1,22 +1,17 @@
 require 'bundler'
-require 'yaml'
 Bundler.require
 
+require './websocket_backend'
+require './spa_backend'
 
-Bandwidth::Client.global_options = {:user_id => ENV['CATAPULT_USER_ID'], :api_token => ENV['CATAPULT_API_TOKEN'], :api_secret => ENV['CATAPULT_API_SECRET']}
-
-
+byebug
 class WebSmsApp < Sinatra::Base
-  use Rack::PostBodyContentTypeParser
-  set :public_folder, File.dirname(__FILE__) + '/public'
-
-  get '/' do
-    redirect '/index.html'
-  end
-
+  use WebsocketBackend
+  use SpaBackend
+  set :public_folder, File.dirname(__FILE__) + '/web-sms-chat-frontend'
 end
 
-if __FILE__ == $0 || __FILE__ == $1
+if __FILE__ == $0 || __FILE__ == $1 then
   #if this file executes as main script
   WebSmsApp.run!()
 end
