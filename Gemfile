@@ -8,6 +8,5 @@ gem "rack-contrib"
 gem "ruby-bandwidth"
 gem "puma"
 gem "i18n"
-gem "securerandom"
 
 gem "byebug", :group => :development

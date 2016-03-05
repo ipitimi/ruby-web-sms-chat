@@ -1,6 +1,7 @@
 require "faye/websocket"
 require "json"
 
+
 class WebsocketBackend
   KEEPALIVE_TIME = 15 # in seconds
   APPLICATION_NAME = "web-sms-chat"
@@ -20,16 +21,16 @@ class WebsocketBackend
       client = @getCatapultClient.call(message)
       applicationName = "web-sms-chat on #{socket.env["HTTP_HOST"]}"
       puts "Getting account's balance"
-      result = Bandwidth::.Account.get(client)
+      result = Bandwidth::Account.get(client)
       raise "You have no enough amount of money on your account" if result[:balance] <= 0
       puts "Getting application id"
-      applicationId = (Bandwidth::Application.list.(client, {size: 1000}).select({|app| app.name == applicationName})[0] || Bandwidth::Application.new({})).id
+      applicationId = ((Bandwidth::Application.list.(client, {size: 1000}).select {|app| app.name == applicationName})[0] || Bandwidth::Application.new({})).id
       unless applicationId
         puts "Creating new application on Catapult"
         applicationId = Bandwidth::Application.create(client, {
           name: applicationName,
           incomingMessageUrl: "http://#{socket.env["HTTP_HOST"]}/${message.auth.userId}/callback"
-        })).id
+        }).id
       end
       puts "Getting phone number"
       phoneNumber = (Bandwidth::PhoneNumber.list(client, {applicationId: applicationId, size: 1})[0] || Bandwidth::PhoneNumber.new({})).number
