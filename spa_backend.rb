@@ -1,7 +1,6 @@
 require "faye/websocket"
 require "json"
 require "securerandom"
-require "byebug"
 
 
 class SpaBackend
