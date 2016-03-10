@@ -31,7 +31,7 @@ class WebSmsApp < Sinatra::Base
     client = Bandwidth::Client.new(auth["userId"], auth["apiToken"], auth["apiSecret"])
     Bandwidth::Media.upload client, file_name, file, type
     content_type "application/json"
-    "{\"fileName\": #{file_name}}"
+    "{\"fileName\": \"#{file_name}\"}"
   end
 
   # callback from catapult
