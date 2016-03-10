@@ -1,2 +1,1 @@
-rake: bundle exec rake
-web: bundle exec puma -p $PORT
+web: ./build-frontend.sh && bundle exec puma -p $PORT
