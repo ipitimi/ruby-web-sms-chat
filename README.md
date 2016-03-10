@@ -31,6 +31,10 @@ git clone git@github.com:BandwidthExamples/ruby-web-sms-chat.git
 
 bundle install
 
+# prepare fronend
+
+bundle exec rake
+
 # run the app
 
 cd ..
