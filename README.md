@@ -31,15 +31,13 @@ git clone git@github.com:BandwidthExamples/ruby-web-sms-chat.git
 
 bundle install
 
-# prepare fronend
+# prepare frontend
 
 bundle exec rake
 
 # run the app
 
-cd ..
-
-PORT=3000 ruby app.rb # or `bundle exec puma -p 3000`
+bundle exec puma -p 3000
 
 ```
 
