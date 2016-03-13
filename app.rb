@@ -24,7 +24,7 @@ class WebSmsApp < Sinatra::Base
   # upload a file before send MMS
   post "/upload" do
     puts "Uploading file"
-    file_name = "#{SecureRandom.hex()}#{params["file"][:filename]}"
+    file_name = SecureRandom.hex()
     file = params["file"][:tempfile]
     type = params["file"][:type]
     auth = JSON.parse(env["HTTP_AUTHORIZATION"] || "{}", {create_additions: false})
