@@ -1,6 +1,15 @@
-#ruby-web-sms-chat
+<div align="center">
+
+# Ruby Web SMS Chat
+
+<a href="http://dev.bandwidth.com"><img src="https://s3.amazonaws.com/bwdemos/BW_Messaging.png"/></a>
+
+</div>
 
 Ruby backend for web-based chat application that features Catapult SMS and MMS capabilities.
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
 
 Demos uses of the:
 * [Catapult Ruby SDK](https://github.com/bandwidthcom/ruby-bandwidth)
