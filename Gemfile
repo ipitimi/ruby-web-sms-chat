@@ -1,5 +1,5 @@
 source "https://rubygems.org"
-ruby "2.2.4"
+ruby "2.5.0"
 
 gem "faye-websocket"
 gem "sinatra"
@@ -7,5 +7,6 @@ gem "rack"
 gem "ruby-bandwidth"
 gem "puma"
 gem "i18n"
+gem "activesupport", "~> 4.1.11"
 
 gem "byebug", :group => :development
