@@ -3,7 +3,7 @@ ruby "2.5.0"
 
 gem "faye-websocket"
 gem "sinatra"
-gem "rack"
+gem "rack", ">= 2.0.6"
 gem "ruby-bandwidth"
 gem "puma"
 gem "i18n"
